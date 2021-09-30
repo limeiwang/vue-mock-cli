@@ -1,7 +1,3 @@
-let path = require('path');
-function resolve (dir) {
-  return path.join(__dirname, '..', dir)
-}
 module.exports = {
   devServer: {
     open: true,
@@ -18,10 +14,5 @@ module.exports = {
         },
       },
     },
-  },
-  resolve: {
-    alias: {
-      '@': resolve('src')
-    }
   }
 };

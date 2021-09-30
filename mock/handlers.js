@@ -1,23 +1,23 @@
-const path = require('path')
-const fs = require('fs')
-const _ = require('lodash')
+const path = require('path');
+const fs = require('fs');
+const _ = require('lodash');
 
 // 返回路径目录数组
 function _findSync (startAbsolutePath) {
-  let result = []
+  let result = [];
 
   function finder (_p) {
-    const files = fs.readdirSync(_p)
+    const files = fs.readdirSync(_p);
     files.forEach(val => {
-      const fPath = path.join(_p, val)
-      const stats = fs.statSync(fPath)
-      if (stats.isDirectory()) finder(fPath)
-      else if (stats.isFile()) result.push(fPath)
-    })
+      const fPath = path.join(_p, val);
+      const stats = fs.statSync(fPath);
+      if (stats.isDirectory()) finder(fPath);
+      else if (stats.isFile()) result.push(fPath);
+    });
   }
 
-  finder(startAbsolutePath)
-  return result
+  finder(startAbsolutePath);
+  return result;
 }
 
 /**
@@ -25,35 +25,35 @@ function _findSync (startAbsolutePath) {
  * ep: 'user/login.json' => { user: { login: data } }
  */
 function _handlePathToObj (_p) {
-  const arr = _p.replace('.json', '').split('/')
-  return {[arr.join('_')]: require(path.join(__dirname, 'data', _p))}
+  const arr = _p.replace('.json', '').split('/');
+  return {[arr.join('_')]: require(path.join(__dirname, 'api', _p))};
 }
 
 // 将data目录下的文件整合为一个db数据
 function dbHandler (startPath) {
-  let db = {}
+  let db = {};
 
-  const startAbsolutePath = path.join(__dirname, startPath)
-  const filePaths = _findSync(startAbsolutePath)
+  const startAbsolutePath = path.join(__dirname, startPath);
+  const filePaths = _findSync(startAbsolutePath);
 
   filePaths.forEach(_p => {
     // 获取相对路径
-    const relativePath = path.relative(path.join(__dirname, 'data'), _p)
-    db = _.merge(db, _handlePathToObj(relativePath))
-  })
-  return db
+    const relativePath = path.relative(path.join(__dirname, 'api'), _p);
+    db = _.merge(db, _handlePathToObj(relativePath));
+  });
+  return db;
 }
 
 function rewriterHandler (db) {
-  const rewriter = {'/api/*': '/$1'}
+  const rewriter = {'/api/*': '/$1'};
   for (const key of Object.keys(db)) {
-    const tmpKey = `/${key.replace(/_/g, '/')}`
-    rewriter[tmpKey] = `/${key}`
+    const tmpKey = `/${key.replace(/_/g, '/')}`;
+    rewriter[tmpKey] = `/${key}`;
   }
-  return rewriter
+  return rewriter;
 }
 
 module.exports = {
   dbHandler,
   rewriterHandler
-}
+};

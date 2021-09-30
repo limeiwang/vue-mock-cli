@@ -1,5 +1,5 @@
 # vue-mock-cli
-
+template、vue-cli、json-server、axios
 ## Project setup
 ```
 npm install
