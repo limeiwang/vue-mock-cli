@@ -1,6 +1,9 @@
 <template>
   <div id="app">
+    <router-link to="/home">home</router-link> | 
+    <router-link to="/about">about</router-link>
     <h1>hello vue-mock-cli</h1>
+    <router-view/>
   </div>
 </template>
 
