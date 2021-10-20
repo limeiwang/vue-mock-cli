@@ -5,7 +5,7 @@ template、vue-cli、json-server、axios
 
 使用方法：
 1. npm install  && npm run mock  
-2. build/webpack.dev.js里更改proxy代理http://localhost:3000/（默认端口3000）
+2. vue.config.js里更改proxy代理http://localhost:3000/（默认端口3000）
 3. mock/api文件夹内创建自己的json数据（会根据json文件的存放位置自动生成url路径）
 
 ## Project setup
