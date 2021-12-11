@@ -17,7 +17,6 @@ export default () => {
           className: "panel-filter",
           labelWidth: 80,
           reset: true,
-          size: 'small',
           controls: [
             [
               {
@@ -32,6 +31,7 @@ export default () => {
                 type: "text",
                 name: "dependentChannel",
                 label: "属地渠道",
+                value: 'abc',
                 clearable: true,
                 span: 6
               },
@@ -44,78 +44,77 @@ export default () => {
                 span: 6
               }
             ],
-            // [
-            //   {
-            //     type: "select",
-            //     size: "small",
-            //     name: "checkStatus",
-            //     label: "排查状态",
-            //     options: [],
-            //     clearable: true,
-            //     multiple: true,
-            //     collapseTags: true,
-            //     value: [],
-            //     span: 6
-            //   },
-            //   {
-            //     type: "select",
-            //     size: "small",
-            //     name: "checkType",
-            //     label: "排查类型",
-            //     options: [],
-            //     clearable: true,
-            //     span: 6
-            //   },
-            //   {
-            //     type: "text",
-            //     size: "small",
-            //     name: "triggerRule",
-            //     label: "触发规则",
-            //     clearable: true,
-            //     span: 6
-            //   }
-            // ],
-            // [
-            //   {
-            //     type: "select",
-            //     size: "small",
-            //     name: "dateType",
-            //     label: "日期选择",
-            //     value: 'warning_date',
-            //     options: [],
-            //     clearable: true,
-            //     span: 6
-            //   },
-            //   {
-            //     type: "daterange",
-            //     size: "small",
-            //     name: "dateCondition",
-            //     // value: [quarterDate, new Date()],
-            //     label: "",
-            //     clearable: true,
-            //     span: 8
-            //   }
-            // ],
-            // [
-            //   {
-            //     type: "select",
-            //     size: "small",
-            //     name: "operationUserType",
-            //     label: "操作人",
-            //     options: [],
-            //     clearable: true,
-            //     span: 6,
-            //   },
-            //   {
-            //     type: "text",
-            //     size: "small",
-            //     name: "operationUser",
-            //     label: "",
-            //     placeholder: "请输入账号精确查询",
-            //     clearable: true,
-            //     span: 8
-            //   }
-            // ]
+            [
+              {
+                type: "select",
+                size: "small",
+                name: "checkStatus",
+                label: "排查状态",
+                options: [],
+                clearable: true,
+                multiple: true,
+                collapseTags: true,
+                value: [],
+                span: 6
+              },
+              {
+                type: "select",
+                size: "small",
+                name: "checkType",
+                label: "排查类型",
+                options: [],
+                clearable: true,
+                span: 6
+              },
+              {
+                type: "text",
+                size: "small",
+                name: "triggerRule",
+                label: "触发规则",
+                clearable: true,
+                span: 6
+              }
+            ],
+            [
+              {
+                type: "select",
+                size: "small",
+                name: "dateType",
+                label: "日期选择",
+                options: [],
+                clearable: true,
+                span: 6
+              },
+              {
+                type: "daterange",
+                size: "small",
+                name: "dateCondition",
+                // value: [quarterDate, new Date()],
+                label: "",
+                clearable: true,
+                span: 8
+              }
+            ],
+            [
+              {
+                type: "select",
+                size: "small",
+                name: "operationUserType",
+                label: "操作人",
+                options: [],
+                clearable: true,
+                span: 6,
+              },
+              {
+                type: "text",
+                size: "small",
+                name: "operationUser",
+                label: "",
+                placeholder: "请输入账号精确查询",
+                clearable: true,
+                span: 8
+              }
+            ]
           ],
           actions: [
             {
@@ -231,15 +230,15 @@ export default () => {
                 type: "button",
                 level: "text",
                 label: "分派",
-                actionType: "router",
-                callback: function () { }
+                actionType: "url",
+                url: "/about"
               },
               {
                 type: "button",
                 level: "text",
                 label: "处理",
-                actionType: "router",
-                callback: function () { }
+                actionType: "url",
+                url: "/detail?insName=$insName"
               }
             ]
           }

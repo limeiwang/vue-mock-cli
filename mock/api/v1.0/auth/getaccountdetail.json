@@ -1,0 +1,9 @@
+{
+  "status": 0,
+  "msg": "成功",
+  "data": {
+    "account_no": "account_no",
+    "serial_number": 9999,
+    "acctnum": "abcd"
+  }
+}
