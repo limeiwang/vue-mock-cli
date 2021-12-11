@@ -1,0 +1,3 @@
+[submodule "components/finbox"]
+	path = components/finbox
+	url = https://github.com/limeiwang/zmis.git

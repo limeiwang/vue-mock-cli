@@ -10,11 +10,11 @@
 <script>
 export default {
   created() {
-    this.$http.posts().then(res => {
-      console.log(res, 1);
-    }).catch(err=>{
-      console.log(err, 2);
-    });
+    // this.$http.posts().then(res => {
+    //   console.log(res, 1);
+    // }).catch(err=>{
+    //   console.log(err, 2);
+    // });
   }
 };
 </script>
